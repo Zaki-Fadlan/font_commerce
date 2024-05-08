@@ -1,0 +1,35 @@
+<div className="grid gap-3 max-w-[270px] sm:max-w-5xl">
+<Label htmlFor="example">
+  <span>Example:</span>
+  <div className="space-y-1">
+    <div>
+      <br />
+      <strong>**BOLD**</strong>
+    </div>
+    <div>
+      <br />
+      <i>*ITALIC*</i>
+    </div>
+    <div>
+      <br />
+      <u>__UNDERLINE__</u>
+    </div>
+  </div>
+</Label>
+<Label htmlFor="result">Result:</Label>
+<p
+  className="max-w-[270px] sm:max-w-5xl"
+  style={{
+    wordWrap: "break-word",
+    fontFamily: "NamaFont",
+    fontSize: "20px",
+  }}
+  dangerouslySetInnerHTML={{
+    __html: trialText
+      .replace(/\n/g, "<br>")
+      .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+      .replace(/__(.*?)__/g, "<u>$1</u>")
+      .replace(/\*(.*?)\*/g, "<i>$1</i>"),
+  }}
+/>
+</div>
